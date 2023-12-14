@@ -99,7 +99,8 @@ void saveInvoiceToFile(struct Order *order)
     }
 }
 
-int generateInvoiceNumber() {
+int generateInvoiceNumber()
+{
     static int invoiceCounter = 1;
     return invoiceCounter++;
 }
@@ -108,6 +109,9 @@ void generateInvoice()
 {
     struct Order currentOrder;
     char saveBill = 'y';
+
+    // Increment the invoice counter when generating a new invoice
+    currentOrder.invoiceNumber = generateInvoiceNumber();
 
     while (getchar() != '\n')
         ;
